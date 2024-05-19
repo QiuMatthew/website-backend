@@ -8,6 +8,9 @@ import (
 )
 
 func DiscreteLogHandler(w http.ResponseWriter, r *http.Request) {
+	// solve cors error
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
+
 	g := r.URL.Query().Get("g")
 	h := r.URL.Query().Get("h")
 	p := r.URL.Query().Get("p")
