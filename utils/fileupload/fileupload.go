@@ -26,14 +26,15 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	defer file.Close()
 
 	// create folder for uploaded files
-	savePath := "./uploads"
+	savePath := "../assets/easy-slide/uploads"
 	err = os.MkdirAll(savePath, os.ModePerm)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
 	// create new empty file
-	dst, err := os.Create(filepath.Join(savePath, handler.Filename))
+	//dst, err := os.Create(filepath.Join(savePath, handler.Filename))
+	dst, err := os.Create(filepath.Join(savePath, "slide.md"))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
