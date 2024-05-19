@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+	"strconv"
 )
 
 func DiscreteLogHandler(w http.ResponseWriter, r *http.Request) {
@@ -17,6 +18,20 @@ func DiscreteLogHandler(w http.ResponseWriter, r *http.Request) {
 
 	if g == "" || h == "" || p == "" {
 		http.Error(w, "Missing Query Parameters", http.StatusBadRequest)
+		return
+	}
+
+	// check the submitted input type
+	if _, err := strconv.ParseInt(g, 10, 64); err != nil {
+		http.Error(w, "Inputs must be integers", http.StatusBadRequest)
+		return
+	}
+	if _, err := strconv.ParseInt(h, 10, 64); err != nil {
+		http.Error(w, "Inputs must be integers", http.StatusBadRequest)
+		return
+	}
+	if _, err := strconv.ParseInt(p, 10, 64); err != nil {
+		http.Error(w, "Inputs must be integers", http.StatusBadRequest)
 		return
 	}
 
