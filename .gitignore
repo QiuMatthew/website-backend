@@ -20,5 +20,5 @@
 # Go workspace file
 go.work
 
-# unncessary MacOS file
+# unncessary OS generated file
 .DS_Store
