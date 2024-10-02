@@ -122,7 +122,7 @@ def pohlig_hellman(g, h, p, factors):
     'p' is the prime modulus
     'factors' is the prime factorization of p - 1, which is a list of tuples (q, e)
     Note: q == 2 is solved by brute force
-    Time complexity: O(\sum_i e_i * (log n + sqrt(q_i)))
+    Time complexity: O(sum_i e_i * (log n + sqrt(q_i)))
     '''
     k = 0
     remainders = []

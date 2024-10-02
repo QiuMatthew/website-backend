@@ -35,6 +35,7 @@ func DiscreteLogHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// fmt.Println(g, h, p)
 	//cmd := exec.Command("python3", "discretelog/script.py", "--generator", g, "--element", h, "--modulus", p)
 	cmd := exec.Command("python3", "discretelog/pohlig_hellman.py", "--generator", g, "--element", h, "--modulus", p)
 
